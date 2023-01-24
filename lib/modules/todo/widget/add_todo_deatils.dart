@@ -3,16 +3,11 @@ import 'dart:ui';
 import 'package:eired_sample/constants/color_contants.dart';
 import 'package:eired_sample/constants/error_message_constants.dart';
 import 'package:eired_sample/constants/list_constants.dart';
-import 'package:eired_sample/modules/home/controller/home_controller.dart';
 import 'package:eired_sample/modules/todo/controller/add_todo_controller.dart';
 import 'package:eired_sample/modules/todo/model/todo_model.dart';
 import 'package:eired_sample/reusable/custom_appbar.dart';
 import 'package:eired_sample/reusable/reusable_button.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
 
 class AddToDoDetails extends StatefulWidget {
