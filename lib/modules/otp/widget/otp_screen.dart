@@ -66,6 +66,12 @@ class _OtpScreenState extends State<OtpScreen> {
                 controller: pinController,
                 androidSmsAutofillMethod:
                     AndroidSmsAutofillMethod.smsUserConsentApi,
+                listenForMultipleSmsOnAndroid: true,
+                onCompleted: ((value) {
+                  controller.confirmOTP(value, widget.verficationId!, context,
+                      widget.mobileNumberText!);
+                }),
+
                 defaultPinTheme: PinTheme(
                     textStyle: Theme.of(context)
                         .textTheme
@@ -74,7 +80,10 @@ class _OtpScreenState extends State<OtpScreen> {
                     constraints: BoxConstraints(minHeight: 50, minWidth: 80),
                     decoration: _pinBoxDecoration,
                     padding: const EdgeInsets.all(16)),
-                onSubmitted: (String pin) => () {},
+                onSubmitted: (String pin) => () {
+                  controller.confirmOTP(pinController.text,
+                      widget.verficationId!, context, widget.mobileNumberText!);
+                },
                 length: 6,
                 // controller: otpController,
               ),
@@ -90,7 +99,7 @@ class _OtpScreenState extends State<OtpScreen> {
               ),
               InkWell(
                   onTap: () {
-                    //  widget.controller!.sendOtp('news');
+                    controller.sendOTP(widget.mobileNumberText ?? '', context);
                   },
                   child: Text('Resend OTP',
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(

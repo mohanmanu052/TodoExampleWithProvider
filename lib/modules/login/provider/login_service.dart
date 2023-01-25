@@ -18,7 +18,7 @@ class LoginService extends ILoginService {
     try {
       print('the mobile number was' + mobilenumber);
       String? verificationId1;
-      await firebaseAuth.verifyPhoneNumber(
+      var res = await firebaseAuth.verifyPhoneNumber(
         phoneNumber: mobilenumber,
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (FirebaseAuthException e) {
@@ -50,7 +50,6 @@ class LoginService extends ILoginService {
 
   @override
   Future<bool> signInWithGoogle() async {
-    // TODO: implement signInWithGoogle
     try {
       await googleSignIntest.signOut();
       await googleSignIntest.signIn();

@@ -14,13 +14,19 @@ class LoginController with ChangeNotifier {
   }
 
   Future<void> googleSignIn(BuildContext context) async {
+    logInState = LogInState.LOADING;
+    notifyListeners();
     print('coming to google sign--');
     var res = await provider?.signInWithGoogle();
     if (res == true) {
+      logInState = LogInState.SUCCESS;
+      notifyListeners();
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => const HomeScreen()),
           (Route<dynamic> route) => false);
     } else {
+      logInState = LogInState.UNKNOWN;
+      notifyListeners();
       CustomSnackBar.showSnackBar(
           ErrorMessageConstants.someErrorOcurredMessage, context);
     }
@@ -30,8 +36,8 @@ class LoginController with ChangeNotifier {
     logInState = LogInState.LOADING;
     notifyListeners();
     var res = await provider?.sendOtp(mobileNumer, context);
-    logInState = LogInState.SUCCESS;
-    notifyListeners();
+    //logInState = LogInState.SUCCESS;
+    //notifyListeners();
     // print('the res id was----' + res.toString());
     // if (res != '') {
     //   print('the verification id was----' + res.toString());

@@ -29,7 +29,6 @@ class SharedPrefrenceLocal {
       email;
     }
     String? userId = prefs.getString('userId');
-    print('user is in shared prefrence was----1' + userId.toString());
 
     List<String> userIDNumber = [email!, userId!];
 
@@ -47,5 +46,12 @@ class SharedPrefrenceLocal {
     String? userId = prefs.getString('userId');
     print('user is in shared prefrence was----' + userId.toString());
     return userId ?? '';
+  }
+
+  static Future<bool> checkLogin() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    bool? isLogged = prefs.getBool('isLogged');
+    return isLogged ?? false;
   }
 }

@@ -1,7 +1,6 @@
 import 'package:eired_sample/constants/error_message_constants.dart';
 import 'package:eired_sample/constants/shareprefrence_constants.dart';
 import 'package:eired_sample/modules/home/homescreen.dart';
-import 'package:eired_sample/modules/home/provider/homescreen_provider.dart';
 import 'package:eired_sample/modules/home/provider/homescreen_service.dart';
 import 'package:eired_sample/modules/todo/model/todo_model.dart';
 import 'package:eired_sample/reusable/custom_snackbar.dart';
@@ -18,7 +17,7 @@ class HomeController with ChangeNotifier {
   DataState loadingState = DataState.UNKNOWN;
   String userEmailorNumber = '';
   String userId = '';
-
+  List<MapEntry<String, int>>? categoryCountList;
   Future<dynamic> getTodoList() async {
     print('the user is in home screen was----' + userId.toString());
     loadingState = DataState.LOADING;
@@ -26,6 +25,7 @@ class HomeController with ChangeNotifier {
     var data = await provider?.getTodoListData(userId);
 
     if (data!.docs.isEmpty) {
+      categoryCountList?.clear();
       loadingState = DataState.EMPTY;
       notifyListeners();
     } else {
@@ -33,6 +33,8 @@ class HomeController with ChangeNotifier {
           .map((docSnapshot) => TodoModel.fromJson(docSnapshot))
           .toList();
       loadingState = DataState.SUCCESS;
+
+      groupingCategory(todoData);
       notifyListeners();
     }
   }
@@ -41,9 +43,22 @@ class HomeController with ChangeNotifier {
     List<String> data = await SharedPrefrenceLocal.getuserEmailorNumber();
     userEmailorNumber = data[0];
     userId = data[1];
-    print('the user id in shared prefrence was-------' + userId.toString());
     notifyListeners();
     getTodoList();
+  }
+
+  Future<void> groupingCategory(List<TodoModel> tododata) async {
+    Map<String, int> categoryCount = {};
+
+    for (var recipe in tododata) {
+      if (recipe.category != null) {
+        categoryCount.update(recipe.category!, (value) => value + 1,
+            ifAbsent: () => 1);
+      }
+    }
+
+    categoryCountList = categoryCount.entries.toList();
+    notifyListeners();
   }
 
   Future<void> deleteDocument(TodoModel model, BuildContext ctx) async {

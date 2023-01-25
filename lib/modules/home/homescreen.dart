@@ -53,7 +53,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     //   "https://images.ctfassets.net/pjshm78m9jt4/383122_header/d79a41045d07d114941f7641c83eea6d/importedImage383122_header",
                     //   fit: BoxFit.cover,
                     // )
-                    background: MyFlexiableAppBar(),
+                    background: MyFlexiableAppBar(
+                      controller: controller,
+                    ),
                   );
                 }),
 

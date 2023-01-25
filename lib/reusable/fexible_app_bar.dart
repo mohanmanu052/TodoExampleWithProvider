@@ -1,12 +1,13 @@
 import 'package:eired_sample/modules/home/controller/home_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class MyFlexiableAppBar extends StatelessWidget {
   final double appBarHeight = 70.0;
   static var format = DateFormat('dd MMM yyyy');
   var dateString = format.format(DateTime.now());
+  HomeController? controller;
+  MyFlexiableAppBar({required this.controller});
   @override
   Widget build(BuildContext context) {
     final double statusBarHeight = MediaQuery.of(context).padding.top;
@@ -58,19 +59,24 @@ class MyFlexiableAppBar extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            GridView.builder(
-                                physics: const NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                        childAspectRatio: 1.8,
-                                        crossAxisSpacing: 10,
-                                        mainAxisSpacing: 10),
-                                itemCount: 4,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return _itemsCategeory(context);
-                                }),
+                            if (controller!.categoryCountList != null &&
+                                controller!.categoryCountList!.isNotEmpty)
+                              GridView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 2,
+                                          childAspectRatio: 1.5,
+                                          crossAxisSpacing: 8,
+                                          mainAxisSpacing: 8),
+                                  itemCount:
+                                      controller?.categoryCountList?.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return _itemsCategeory(context,
+                                        controller?.categoryCountList?[index]);
+                                  }),
                           ],
                         ),
                       )),
@@ -156,7 +162,8 @@ class MyFlexiableAppBar extends StatelessWidget {
         ));
   }
 
-  Widget _itemsCategeory(BuildContext context) {
+  Widget _itemsCategeory(
+      BuildContext context, MapEntry<String, int>? categoryCountList) {
     return Container(
         // height: 20,
         child: RichText(
@@ -165,15 +172,15 @@ class MyFlexiableAppBar extends StatelessWidget {
             child: Column(
           children: [
             Text(
-              '24',
+              categoryCountList?.key ?? '',
               // Noto Sans Japanese
               style: Theme.of(context).textTheme.bodyText1?.copyWith(
                   color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w200),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400),
             ),
             Text(
-              'Personal',
+              categoryCountList?.value.toString() ?? '',
               style: Theme.of(context).textTheme.bodyText2?.copyWith(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,

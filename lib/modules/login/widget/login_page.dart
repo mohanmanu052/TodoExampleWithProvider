@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<LoginController>(builder: (context, controller, _) {
+      print('the login state was-------' + controller.logInState.toString());
       return Scaffold(
         body: SafeArea(
           child: Stack(
@@ -114,8 +115,11 @@ class _LoginPageState extends State<LoginPage> {
               ),
               if (controller.logInState == LogInState.LOADING)
                 Container(
+                  margin: EdgeInsets.only(bottom: 100),
                   alignment: Alignment.center,
-                  child: CircularProgressIndicator(),
+                  child: const CircularProgressIndicator(
+                      //color: Colors.amber,
+                      ),
                 ),
             ],
           ),
