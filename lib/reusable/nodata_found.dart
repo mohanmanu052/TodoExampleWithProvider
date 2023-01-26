@@ -1,8 +1,6 @@
 import 'package:eired_sample/constants/error_message_constants.dart';
 import 'package:eired_sample/reusable/reusable_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class NoDataFound extends StatelessWidget {
   final VoidCallback? onTrygainTap;

@@ -19,7 +19,6 @@ class HomeController with ChangeNotifier {
   String userId = '';
   List<MapEntry<String, int>>? categoryCountList;
   Future<dynamic> getTodoList() async {
-    print('the user is in home screen was----' + userId.toString());
     loadingState = DataState.LOADING;
     notifyListeners();
     var data = await provider?.getTodoListData(userId);

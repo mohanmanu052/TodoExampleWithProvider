@@ -7,7 +7,6 @@ import 'package:eired_sample/reusable/custom_appbar.dart';
 import 'package:eired_sample/reusable/nodata_found.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 class TodoListView extends StatefulWidget {
@@ -77,17 +76,6 @@ class _TodoListState extends State<TodoListView> {
                         alignment: Alignment.topLeft,
                         child: CircleAvatar(
                             foregroundImage: AssetImage(data.imageAsset ?? '')),
-                        // height: 40,
-                        // width: 100,
-                        // decoration: BoxDecoration(
-                        //     shape: BoxShape.circle,
-                        //     image: DecorationImage(
-                        //         scale: 1.2,
-                        //         image: AssetImage(
-                        //           data.imageAsset ?? '',
-                        //         ))
-
-                        //         ),
                       )),
                   Flexible(
                       flex: 5,

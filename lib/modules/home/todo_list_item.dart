@@ -1,10 +1,6 @@
 import 'package:eired_sample/modules/todo/model/todo_model.dart';
 import 'package:eired_sample/modules/viewtodo/widget/detail_todo_view.dart';
-import 'package:eired_sample/modules/viewtodo/widget/todo_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_svg/svg.dart';
 
 class TodoListItem extends StatelessWidget {
   TodoModel? modeldata;

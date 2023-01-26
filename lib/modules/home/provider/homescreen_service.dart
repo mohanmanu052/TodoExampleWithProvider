@@ -10,7 +10,11 @@ abstract class IHomeScreenService {
 class HomeScreenService implements IHomeScreenService {
   @override
   Future<QuerySnapshot> getTodoListData(String userId) {
-    var ref = collectionReference.doc(userId).collection('Todo').get();
+    var ref = collectionReference
+        .doc(userId)
+        .collection('Todo')
+        .orderBy('date', descending: true)
+        .get();
     return ref;
   }
 

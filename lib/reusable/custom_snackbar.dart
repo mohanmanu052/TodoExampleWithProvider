@@ -1,4 +1,3 @@
-import 'package:eired_sample/constants/error_message_constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomSnackBar {

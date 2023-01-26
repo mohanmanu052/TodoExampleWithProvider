@@ -1,7 +1,5 @@
-import 'package:eired_sample/constants/color_contants.dart';
 import 'package:eired_sample/constants/error_message_constants.dart';
 import 'package:eired_sample/modules/login/controller/login_controller.dart';
-import 'package:eired_sample/modules/otp/widget/otp_screen.dart';
 import 'package:eired_sample/reusable/custom_snackbar.dart';
 import 'package:eired_sample/reusable/reusable_button.dart';
 import 'package:flutter/material.dart';

@@ -21,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     controller = Provider.of<HomeController>(context, listen: false);
     controller?.getUserMobilenumbername();
-    // controller?.getTodoList();
 
     // TODO: implement initState
     super.initState();
@@ -39,7 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: ColorConstants.primaryColor,
                 expandedHeight: 200.0,
                 pinned: true,
-
                 flexibleSpace: LayoutBuilder(builder:
                     (BuildContext context, BoxConstraints constraints) {
                   var top = constraints.biggest.height;
@@ -49,40 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold),
                     ),
-                    // background: Image.network(
-                    //   "https://images.ctfassets.net/pjshm78m9jt4/383122_header/d79a41045d07d114941f7641c83eea6d/importedImage383122_header",
-                    //   fit: BoxFit.cover,
-                    // )
                     background: MyFlexiableAppBar(
                       controller: controller,
                     ),
                   );
                 }),
-
-                // FlexibleSpaceBar(
-                //   background: MyFlexiableAppBar(),
-
-                // Container(
-                //   decoration: BoxDecoration(
-                //     image: DecorationImage(
-                //       image: AssetImage("assets/mountains.webp"),
-                //       fit: BoxFit.cover,
-                //     ),
-                //   ),
-                // ),
-
-                // title: Text('Your Things'),
               )
-              // Container(),
-              // SliverList(
-              //   delegate: SliverChildBuilderDelegate(
-              //     (_, int index) {
-              //       return TodoListItem();
-              //     },
-              //     childCount: 20,
-              //   ),
-              // ),
-              // ],
             ];
           },
           body: Container(

@@ -36,26 +36,6 @@ class LoginController with ChangeNotifier {
     logInState = LogInState.LOADING;
     notifyListeners();
     var res = await provider?.sendOtp(mobileNumer, context);
-    //logInState = LogInState.SUCCESS;
-    //notifyListeners();
-    // print('the res id was----' + res.toString());
-    // if (res != '') {
-    //   print('the verification id was----' + res.toString());
-    //   logInState = LogInState.SUCCESS;
-    //   notifyListeners();
-    //   Navigator.push(
-    //       context,
-    //       MaterialPageRoute(
-    //           builder: ((context) => OtpScreen(
-    //                 mobileNumberText: mobileNumer,
-    //                 verficationId: res,
-    //               ))));
-    // } else {
-    //   logInState = LogInState.SUCCESS;
-    //   notifyListeners();
-    //   CustomSnackBar.showSnackBar(
-    //       ErrorMessageConstants.someErrorOcurredMessage, context);
-    // }
   }
 
   Future<void> confirmOTP(String code, String verificationId,

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:eired_sample/constants/color_contants.dart';
 import 'package:eired_sample/constants/error_message_constants.dart';
 import 'package:eired_sample/constants/list_constants.dart';
@@ -51,9 +49,6 @@ class _AddToDoDetailsState extends State<AddToDoDetails> {
             child: Stack(
           children: [
             SingleChildScrollView(
-              // height: MediaQuery.of(context).size.height,
-              //width: MediaQuery.of(context).size.width,
-              //color: ColorConstants.primaryColor,
               child: Column(
                 children: [
                   Container(
@@ -206,16 +201,6 @@ class _AddToDoDetailsState extends State<AddToDoDetails> {
                                 );
 
                                 if (pickedTime != null) {
-                                  // print(pickedTime.format(context)); //output 10:51 PM
-                                  // DateTime parsedTime = DateFormat.jm()
-                                  //     .parse(pickedTime.format(context).toString());
-                                  // //converting to DateTime so that we can further format on different pattern.
-                                  // print(parsedTime); //output 1970-01-01 22:53:00.000
-                                  // String formattedTime =
-                                  //     DateFormat('HH:mm aa').format(parsedTime);
-                                  // print(formattedTime); //output 14:59:00
-                                  //DateFormat() is from intl package, you can format the time on any pattern you need.
-
                                   setState(() {
                                     timeTextController.text = pickedTime.format(
                                         context); //set the value of text field.

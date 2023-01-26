@@ -89,76 +89,6 @@ class MyFlexiableAppBar extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText1?.copyWith(
                         color: Colors.white, fontWeight: FontWeight.w400))),
           ]),
-
-          //   child: Stack(
-          //     children: [
-          //       Row(
-          //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //         crossAxisAlignment: CrossAxisAlignment.start,
-          //         children: [
-          //           Flexible(
-          //               flex: 1,
-          //               //fit: FlexFit.tight,
-          //               child: Column(
-          //                 mainAxisAlignment: MainAxisAlignment.start,
-          //                 crossAxisAlignment: CrossAxisAlignment.start,
-          //                 children: [
-          //                   Container(
-          //                     padding: EdgeInsets.all(6),
-          //                     margin: EdgeInsets.only(top: 10),
-          //                     child: Text(
-          //                       'Your \n Things',
-          //                       style: Theme.of(context)
-          //                           .textTheme
-          //                           .headline1
-          //                           ?.copyWith(
-          //                               color: Colors.white,
-          //                               fontSize: 30,
-          //                               fontWeight: FontWeight.w400),
-          //                     ),
-          //                   ),
-          //                   SizedBox(
-          //                     height: 10,
-          //                   ),
-          //                   Container(
-          //                     padding: EdgeInsets.all(6),
-          //                     child: Text(
-          //                       dateString,
-          //                       style: Theme.of(context)
-          //                           .textTheme
-          //                           .bodyText1
-          //                           ?.copyWith(
-          //                               color: Colors.white,
-          //                               fontWeight: FontWeight.w400),
-          //                     ),
-          //                   ),
-          //                 ],
-          //               )),
-          //           Flexible(
-          //               fit: FlexFit.tight,
-          //               child: Container(
-          //                 // margin: EdgeInsets.only(bottom: 20),
-          //                 alignment: Alignment.topRight,
-          //                 child: Column(
-          //                   mainAxisAlignment: MainAxisAlignment.start,
-          //                   crossAxisAlignment: CrossAxisAlignment.end,
-          //                   children: [
-          //                     GridView.builder(
-          //                         shrinkWrap: true,
-          //                         gridDelegate:
-          //                             const SliverGridDelegateWithFixedCrossAxisCount(
-          //                                 crossAxisCount: 2, childAspectRatio: 2),
-          //                         itemCount: 4,
-          //                         itemBuilder: (BuildContext context, int index) {
-          //                           return _itemsCategeory(context);
-          //                         }),
-          //                   ],
-          //                 ),
-          //               ))
-          //         ],
-          //       )
-          //     ],
-          //   ),
         ));
   }
 
@@ -188,7 +118,6 @@ class MyFlexiableAppBar extends StatelessWidget {
             ),
           ],
         )),
-        // WidgetSpan(child: Text('yyy'))
       ]),
     ));
   }
